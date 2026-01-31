@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glosario Crítico Sistémico: Super Pedagogía Bros</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- Fuente Pixelada para Títulos y Fuente Inter para Lectura Clara -->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --mario-red: #E52521;
+            --mario-green: #43B047;
+            --mario-blue: #049CD8;
+            --mario-yellow: #FBD000;
+            --mario-brown: #925D44; /* Bricks */
+            --sky-blue: #6185F8;
+        }
+
+        body {
+            /* Cambio a Inter para mejor legibilidad en textos largos */
+            font-family: 'Inter', sans-serif; 
+            background-color: var(--sky-blue);
+            color: #2d2d2d;
+            overflow-x: hidden;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, .pixel-font {
+            font-family: 'Press Start 2P', cursive; /* Títulos pixelados */
+            line-height: 1.4;
+        }
+
+        /* Nubes de fondo CSS */
+        .cloud {
+            position: fixed;
+            background: #fff;
+            border-radius: 20px;
+            z-index: -1;
+            opacity: 0.8;
+        }
+        .cloud::after, .cloud::before {
+            content: '';
+            position: absolute;
+            background: #fff;
+            border-radius: 50%;
+        }
+
+        /* Estilo Bloque ? y Ladrillo */
+        .brick-card {
+            background-color: #fff;
+            border: 4px solid #000;
+            box-shadow: 8px 8px 0px rgba(0,0,0,0.2);
+            position: relative;
+            transition: transform 0.1s;
+        }
+        .brick-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 8px 12px 0px rgba(0,0,0,0.2);
+        }
+        .brick-card::before {
+            /* Decoración de esquinas pixeladas */
+            content: "";
+            position: absolute;
+            top: 4px; left: 4px; right: 4px; bottom: 4px;
+            border: 2px dashed #ddd;
+            pointer-events: none;
+        }
+
+        /* Botones estilo Moneda/Bloque */
+        .pixel-btn {
+            background: var(--mario-red);
+            color: white;
+            border: 4px solid #000;
+            box-shadow: 4px 4px 0px #000;
+            text-transform: uppercase;
+            font-family: 'Press Start 2P', cursive;
+            font-size: 0.7rem;
+            padding: 12px 18px;
+            transition: all 0.1s;
+            line-height: 1;
+        }
+        .pixel-btn:hover {
+            background: #ff4d4d;
+            transform: translateY(2px);
+            box-shadow: 2px 2px 0px #000;
+        }
+        .pixel-btn.green { background: var(--mario-green); }
+        .pixel-btn.blue { background: var(--mario-blue); }
+
+        /* Imágenes con marco pixelado */
+        .pixel-img-container {
+            border: 4px solid #000;
+            background: #000;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+        .pixel-img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block;
+            opacity: 0.95;
+        }
+        
+        /* Tubería Decorativa */
+        .pipe-deco {
+            border: 4px solid #000;
+            background: linear-gradient(90deg, #66b032 10%, #92d854 40%, #66b032 80%);
+            box-shadow: 6px 6px 0px rgba(0,0,0,0.3);
+        }
+
+        /* Scrollbar Retro */
+        ::-webkit-scrollbar { width: 16px; }
+        ::-webkit-scrollbar-track { background: var(--mario-blue); border-left: 2px solid #000; }
+        ::-webkit-scrollbar-thumb { 
+            background: var(--mario-yellow); 
+            border: 2px solid #000;
+            box-shadow: inset 2px 2px 0px #fff;
+        }
+    </style>
+</head>
+<body class="antialiased min-h-screen relative pb-32">
+
+    <!-- Nubes de fondo (Decoración) -->
+    <div class="cloud w-32 h-12 top-20 left-10 opacity-60"></div>
+    <div class="cloud w-48 h-16 top-40 right-20 opacity-80"></div>
+    <div class="cloud w-24 h-10 bottom-1/4 left-1/3 opacity-50"></div>
+
+    <!-- Barra de Navegación Estilo Tubería -->
+    <nav class="sticky top-0 z-50 pipe-deco border-b-4 border-black mx-2 mt-2 rounded-lg">
+        <div class="max-w-7xl mx-auto px-4 py-3">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+                <div class="flex items-center gap-3">
+                    <i class="fa-solid fa-gamepad text-white text-2xl drop-shadow-[2px_2px_0_#000]"></i>
+                    <span class="pixel-font text-white text-xs md:text-sm tracking-widest drop-shadow-[2px_2px_0_#000]">WORLD 1-1: PEDAGOGÍA</span>
+                </div>
+                <div class="flex flex-wrap justify-center gap-2">
+                    <a href="#section-a" class="pixel-btn text-[0.6rem] md:text-xs no-underline">A. SISTEMA</a>
+                    <a href="#section-b" class="pixel-btn green text-[0.6rem] md:text-xs no-underline">B. PROTOCOLOS</a>
+                    <a href="#section-c" class="pixel-btn blue text-[0.6rem] md:text-xs no-underline">C. MUNDO</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header Principal -->
+    <header class="relative z-10 pt-16 pb-12 text-center px-4">
+        <div class="inline-block bg-[#E52521] border-4 border-black p-4 shadow-[8px_8px_0_#000] rotate-1 transform mb-6">
+            <h1 class="text-2xl md:text-4xl text-white pixel-font leading-relaxed drop-shadow-[4px_4px_0_#000]">
+                GLOSARIO CRÍTICO<br>SISTÉMICO
+            </h1>
+        </div>
+        <div class="mt-4 bg-white/90 inline-block border-2 border-black px-6 py-3">
+            <p class="text-lg md:text-xl text-black font-bold tracking-tight">
+                Pedagogía para la Vida & Ecopedagogía
+            </p>
+        </div>
+        
+        <div class="mt-8 flex justify-center gap-4 text-xs pixel-font">
+            <div class="flex items-center gap-2 bg-black text-yellow-400 px-3 py-2 rounded">
+                <i class="fa-solid fa-coins animate-bounce"></i> <span>x 12 CONCEPTOS</span>
+            </div>
+            <div class="flex items-center gap-2 bg-black text-white px-3 py-2 rounded">
+                <i class="fa-solid fa-clock"></i> <span>TIME: INFINITO</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-4 space-y-24">
+
+        <!-- SECCIÓN A -->
+        <section id="section-a" class="scroll-mt-32">
+            <div class="bg-[#925D44] p-4 border-4 border-black shadow-[8px_8px_0_rgba(0,0,0,0.5)] mb-12 flex items-center gap-4">
+                <div class="bg-[#FBD000] w-12 h-12 border-4 border-black flex items-center justify-center animate-pulse">
+                    <span class="pixel-font text-2xl">?</span>
+                </div>
+                <div>
+                    <h2 class="text-xl md:text-2xl text-white pixel-font drop-shadow-[2px_2px_0_#000]">A. El Sistema Operativo</h2>
+                    <p class="text-white text-lg font-bold">/// Fundamentos Biológicos</p>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-10">
+                <!-- Ficha 1 -->
+                <article class="brick-card p-6">
+                    <div class="pixel-img-container">
+                        <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Biología y tecnología" class="pixel-img">
+                        <div class="absolute top-2 left-2 bg-black text-white px-2 py-1 pixel-font text-[0.6rem]">ID: 001</div>
+                    </div>
+                    <h3 class="text-lg md:text-xl text-[#E52521] pixel-font mb-4 border-b-4 border-black pb-3">1. Biopedagogía</h3>
+                    
+                    <div class="space-y-5">
+                        <div class="bg-gray-50 p-4 border-2 border-dashed border-gray-300 rounded">
+                            <strong class="block pixel-font text-[0.7rem] text-gray-500 mb-2 uppercase tracking-wide">DEFINICIÓN TEXTUAL:</strong>
+                            <p class="italic text-gray-700">Educación centrada en la vida ("bio") y los procesos de aprendiencia, integrando la cotidianidad y la plurisensorialidad.</p>
+                        </div>
+                        
+                        <div>
+                            <strong class="block pixel-font text-xs text-[#E52521] mb-2"><i class="fa-solid fa-bomb"></i> Crítica (Enfoque Sistémico):</strong>
+                            <p class="text-gray-800 leading-relaxed text-sm md:text-base">Tradicionalmente, vemos la educación como un "procesamiento de datos" (input docente -> output examen). La biopedagogía plantea que el alumno no es un computador pasivo, sino un sistema vivo adaptativo. Si el "hardware" (cuerpo/emoción) falla, el "software" (conocimiento técnico) no corre. En un CTP, no podemos enseñar código o electrónica ignorando que el sistema biológico del estudiante (hambre, estrés, sueño) afecta su rendimiento.</p>
+                        </div>
+
+                        <div class="bg-[#effdf5] p-4 border-l-4 border-[#43B047] rounded-r">
+                            <strong class="block pixel-font text-xs text-[#43B047] mb-2"><i class="fa-solid fa-wrench"></i> Aplicación CTP:</strong>
+                            <p class="text-gray-800 leading-relaxed text-sm md:text-base">Antes de iniciar una clase de laboratorio compleja (ej. redes o programación), haces un "ping" al estado del sistema: ¿Cómo están de energía? ¿Hay "procesos en segundo plano" (problemas personales) consumiendo RAM? Se valida el estado del bio-sistema antes de cargar nueva información.</p>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Ficha 2 -->
+                <article class="brick-card p-6">
+                    <div class="pixel-img-container">
+                        <img src="https://images.unsplash.com/photo-1580927752452-89d86da3fa0a?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Código y células" class="pixel-img">
+                        <div class="absolute top-2 left-2 bg-black text-white px-2 py-1 pixel-font text-[0.6rem]">ID: 002</div>
+                    </div>
+                    <h3 class="text-lg md:text-xl text-[#E52521] pixel-font mb-4 border-b-4 border-black pb-3">2. Autopoiesis</h3>
+                    
+                    <div class="space-y-5">
+                        <div class="bg-gray-50 p-4 border-2 border-dashed border-gray-300 rounded">
+                            <strong class="block pixel-font text-[0.7rem] text-gray-500 mb-2 uppercase tracking-wide">DEFINICIÓN TEXTUAL:</strong>
+                            <p class="italic text-gray-700">Concepto de Maturana y Varela. Capacidad de un sistema para producirse a sí mismo. El sistema es cerrado operativamente pero abierto termodinámicamente (necesita materia/energía).</p>
+                        </div>
+                        
+                        <div>
+                            <strong class="block pixel-font text-xs text-[#E52521] mb-2"><i class="fa-solid fa-bomb"></i> Crítica (Enfoque Sistémico):</strong>
+                            <p class="text-gray-800 leading-relaxed text-sm md:text-base">Esta es la clave: No puedes "programar" a un alumno. El alumno es un sistema autopoiético; él escribe su propio código fuente. El docente solo puede enviar "perturbaciones" o inputs al sistema para disparar una re-escritura interna. Si intentas "hardcodear" el conocimiento, generas resistencia o errores de sintaxis lógica en su comprensión.</p>
+                        </div>
+
+                        <div class="bg-[#effdf5] p-4 border-l-4 border-[#43B047] rounded-r">
+                            <strong class="block pixel-font text-xs text-[#43B047] mb-2"><i class="fa-solid fa-wrench"></i> Aplicación CTP:</strong>
+                            <p class="text-gray-800 leading-relaxed text-sm md:text-base">En lugar de darles el código hecho para que lo copien (hardcoding), les das un sistema con un "bug" crítico y dejas que su propia lógica interna (autopoiesis) encuentre la ruta para repararlo. Ellos autogeneran la solución.</p>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Ficha 3 -->
+                <article class="brick-card p-6">
+                    <div class="pixel-img-container">
+                        <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Red neuronal aprendizaje" class="pixel-img">
+                        <div class="absolute top-2 left-2 bg-black text-white px-2 py-1 pixel-font text-[0.6rem]">ID: 003</div>
+                    </div>
+                    <h3 class="text-lg md:text-xl text-[#E52521] pixel-font mb-4 border-b-4 border-black pb-3">3. Aprendiencia</h3>
+                    
+                    <div class="space-y-5">
+                        <div class="bg-gray-50 p-4 border-2 border-dashed border-gray-300 rounded">
+                            <strong class="block pixel-font text-[0.7rem] text-gray-500 mb-2 uppercase tracking-wide">DEFINICIÓN TEXTUAL:</strong>
+                            <p class="italic text-gray-700">Estado permanente de autoorganización, una propiedad emergente de la red de interacciones neuronales. Es un life-long-learning continuo.</p>
+                        </div>
+                        
+                        <div>
+                            <strong class="block pixel-font text-xs text-[#E52521] mb-2"><i class="fa-solid fa-bomb"></i> Crítica (Enfoque Sistémico):</strong>
+                            <p class="text-gray-800 leading-relaxed text-sm md:text-base">El aprendizaje no es un "archivo guardado" (Save As...), es un proceso en tiempo de ejecución (runtime). La escuela suele evaluar "snapshots" estáticos (exámenes), pero la aprendiencia es el flujo de datos constante. Es como pasar de un modelo de "desarrollo en cascada" a una metodología "Agile" o "CI/CD" (Integración y Despliegue Continuo) del cerebro humano.</p>
+                        </div>
+
+                        <div class="bg-[#effdf5] p-4 border-l-4 border-[#43B047] rounded-r">
+                            <strong class="block pixel-font text-xs text-[#43B047] mb-2"><i class="fa-solid fa-wrench"></i> Aplicación CTP:</strong>
+                            <p class="text-gray-800 leading-relaxed text-sm md:text-base">Implementar portafolios de evidencias tipo GitHub (repositorios). No importa solo la versión final del proyecto, sino los "commits" (cambios y mejoras) que el estudiante hizo durante el semestre. Evalúas la evolución del sistema, no solo el producto final.</p>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Ficha 4 -->
+                <article class="brick-card p-6">
+                    <div class="pixel-img-container">
+                        <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Complejidad y redes" class="pixel-img">
+                        <div class="absolute top-2 left-2 bg-black text-white px-2 py-1 pixel-font text-[0.6rem]">ID: 004</div>
+                    </div>
+                    <h3 class="text-lg md:text-xl text-[#E52521] pixel-font mb-4 border-b-4 border-black pb-3">4. Pedagogía de la Complejidad</h3>
+                    
+                    <div class="space-y-5">
+                        <div class="bg-gray-50 p-4 border-2 border-dashed border-gray-300 rounded">
+                            <strong class="block pixel-font text-[0.7rem] text-gray-500 mb-2 uppercase tracking-wide">DEFINICIÓN TEXTUAL:</strong>
+                            <p class="italic text-gray-700">Asume a los seres vivos como sistemas autoorganizados y aborda la complejidad de las relaciones humanas, educando para la incertidumbre y no para la certeza.</p>
+                        </div>
+                        
+                        <div>
+                            <strong class="block pixel-font text-xs text-[#E52521] mb-2"><i class="fa-solid fa-bomb"></i> Crítica (Enfoque Sistémico):</strong>
+                            <p class="text-gray-800 leading-relaxed text-sm md:text-base">El mundo real no es lineal. En ingeniería, sabemos que los sistemas complejos tienen propiedades emergentes que no se explican por la suma de las partes. Enseñar solo fórmulas lineales es engañar al estudiante. Debemos entrenarlos para gestionar el caos y la entropía de los sistemas reales.</p>
+                        </div>
+
+                        <div class="bg-[#effdf5] p-4 border-l-4 border-[#43B047] rounded-r">
+                            <strong class="block pixel-font text-xs text-[#43B047] mb-2"><i class="fa-solid fa-wrench"></i> Aplicación CTP:</strong>
+                            <p class="text-gray-800 leading-relaxed text-sm md:text-base">Aprendizaje Basado en Problemas (ABP) mal definidos. No les des: "Calcula X". Dales: "El servidor se cae aleatoriamente los martes a las 3 PM. Averigua por qué". Tienen que navegar la complejidad, revisar logs, hardware, usuario, red. Es depuración de sistemas (debugging) aplicada a la vida.</p>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- SECCIÓN B -->
+        <section id="section-b" class="scroll-mt-32">
+            <div class="bg-[#000] p-4 border-4 border-white shadow-[8px_8px_0_rgba(0,0,0,0.5)] mb-12 flex items-center gap-4">
+                <div class="bg-[#43B047] w-12 h-12 border-4 border-white flex items-center justify-center">
+                    <i class="fa-solid fa-heart text-white animate-pulse"></i>
+                </div>
+                <div>
+                    <h2 class="text-xl md:text-2xl text-white pixel-font">B. Protocolos de Interfaz</h2>
+                    <p class="text-[#43B047] text-lg font-bold">/// Dimensión Ética</p>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-10">
+                <!-- Ficha 5 -->
+                <article class="brick-card p-6">
+                    <div class="pixel-img-container">
+                        <img src="https://images.unsplash.com/photo-1581092921461-eab62e97a780?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Reparación y cuidado" class="pixel-img">
+                        <div class="absolute top-2 left-2 bg-black text-white px-2 py-1 pixel-font text-[0.6rem]">ID: 005</div>
+                    </div>
+                    <h3 class="text-lg md:text-xl text-[#43B047] pixel-font mb-4 border-b-4 border-black pb-3">5. Ética del Cuidado</h3>
+                    
+                    <div class="space-y-5">
+                        <div class="bg-gray-50 p-4 border-2 border-dashed border-gray-300 rounded">
+                            <strong class="block pixel-font text-[0.7rem] text-gray-500 mb-2 uppercase tracking-wide">DEFINICIÓN TEXTUAL:</strong>
+                            <p class="italic text-gray-700">Ética que garantiza la habitabilidad y sustentabilidad, equilibrando el trabajo con la "plasmación del ser". Supera la moral patriarcal de dominación.</p>
+                        </div>
+                        
+                        <div>
+                            <strong class="block pixel-font text-xs text-[#E52521] mb-2"><i class="fa-solid fa-bomb"></i> Crítica (Enfoque Sistémico):</strong>
+                            <p class="text-gray-800 leading-relaxed text-sm md:text-base">Es el mantenimiento preventivo del sistema humano y social. Un sistema que se explota al 100% de CPU constantemente se quema (burnout). La "ética del cuidado" es la gestión térmica y de recursos para evitar el colapso del sistema. Sin cuidado, no hay uptime (tiempo de actividad) sostenible.</p>
+                        </div>
+
+                        <div class="bg-[#effdf5] p-4 border-l-4 border-[#43B047] rounded-r">
+                            <strong class="block pixel-font text-xs text-[#43B047] mb-2"><i class="fa-solid fa-wrench"></i> Aplicación CTP:</strong>
+                            <p class="text-gray-800 leading-relaxed text-sm md:text-base">En los talleres técnicos, enseñar que el cuidado de las herramientas, el orden del taller y el respeto a las normas de seguridad (safety) no son "reglas molestas", sino protocolos de integridad del sistema. "Si no cuidas tu entorno de desarrollo (IDE) y tu equipo, tu código saldrá sucio".</p>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Ficha 6 -->
+                <article class="brick-card p-6">
+                    <div class="pixel-img-container">
+                        <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Diálogo y conexión" class="pixel-img">
+                        <div class="absolute top-2 left-2 bg-black text-white px-2 py-1 pixel-font text-[0.6rem]">ID: 006</div>
+                    </div>
+                    <h3 class="text-lg md:text-xl text-[#43B047] pixel-font mb-4 border-b-4 border-black pb-3">6. Formación para el Diálogo</h3>
+                    
+                    <div class="space-y-5">
+                        <div class="bg-gray-50 p-4 border-2 border-dashed border-gray-300 rounded">
+                            <strong class="block pixel-font text-[0.7rem] text-gray-500 mb-2 uppercase tracking-wide">DEFINICIÓN TEXTUAL:</strong>
+                            <p class="italic text-gray-700">Proceso para transformar modelos mentales y lograr comprensión mutua. Esencial para resolver conflictos y conectar con el "otro".</p>
+                        </div>
+                        
+                        <div>
+                            <strong class="block pixel-font text-xs text-[#E52521] mb-2"><i class="fa-solid fa-bomb"></i> Crítica (Enfoque Sistémico):</strong>
+                            <p class="text-gray-800 leading-relaxed text-sm md:text-base">Es el protocolo de comunicación (handshake) entre nodos de la red. Si no hay estándares de comunicación claros (escucha activa, respeto), hay pérdida de paquetes de datos y latencia en el aprendizaje. El conflicto es ruido en el canal; el diálogo es la corrección de errores.</p>
+                        </div>
+
+                        <div class="bg-[#effdf5] p-4 border-l-4 border-[#43B047] rounded-r">
+                            <strong class="block pixel-font text-xs text-[#43B047] mb-2"><i class="fa-solid fa-wrench"></i> Aplicación CTP:</strong>
+                            <p class="text-gray-800 leading-relaxed text-sm md:text-base">Técnicas de "Peer Review" (Revisión por pares) rigurosas pero respetuosas. Los estudiantes deben revisar el proyecto del compañero no para destruirlo, sino para encontrar bugs y optimizarlo, dialogando sobre la lógica usada.</p>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- SECCIÓN C -->
+        <section id="section-c" class="scroll-mt-32">
+            <div class="bg-[#049CD8] p-4 border-4 border-black shadow-[8px_8px_0_rgba(0,0,0,0.5)] mb-12 flex items-center gap-4">
+                <div class="bg-white w-12 h-12 border-4 border-black flex items-center justify-center">
+                    <i class="fa-solid fa-earth-americas text-[#049CD8]"></i>
+                </div>
+                <div>
+                    <h2 class="text-xl md:text-2xl text-white pixel-font text-shadow">C. Arquitectura del Entorno</h2>
+                    <p class="text-white text-lg font-bold">/// Ecopedagogía</p>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-10">
+                <!-- Ficha 7 -->
+                <article class="brick-card p-6">
+                    <div class="pixel-img-container">
+                        <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Planeta Tierra tecnológico" class="pixel-img">
+                        <div class="absolute top-2 left-2 bg-black text-white px-2 py-1 pixel-font text-[0.6rem]">ID: 007</div>
+                    </div>
+                    <h3 class="text-lg md:text-xl text-[#049CD8] pixel-font mb-4 border-b-4 border-black pb-3">7. Ecopedagogía</h3>
+                    
+                    <div class="space-y-5">
+                        <div class="bg-gray-50 p-4 border-2 border-dashed border-gray-300 rounded">
+                            <strong class="block pixel-font text-[0.7rem] text-gray-500 mb-2 uppercase tracking-wide">DEFINICIÓN TEXTUAL:</strong>
+                            <p class="italic text-gray-700">Educación por el ambiente, no solo para él. Integra heteroformación, autoformación y ecoformación. Entiende a la Tierra como un sistema vivo del cual somos subsistemas.</p>
+                        </div>
+                        
+                        <div>
+                            <strong class="block pixel-font text-xs text-[#E52521] mb-2"><i class="fa-solid fa-bomb"></i> Crítica (Enfoque Sistémico):</strong>
+                            <p class="text-gray-800 leading-relaxed text-sm md:text-base">Es el cambio de paradigma de "Administrador de Sistemas Locales" a "Arquitecto de Nube Global". Entender que mi código (mi acción) corre en un servidor compartido (la Tierra) y que si consumo todos los recursos, el servidor se cae para todos. Es visión holística de la infraestructura planetaria.</p>
+                        </div>
+
+                        <div class="bg-[#effdf5] p-4 border-l-4 border-[#43B047] rounded-r">
+                            <strong class="block pixel-font text-xs text-[#43B047] mb-2"><i class="fa-solid fa-wrench"></i> Aplicación CTP:</strong>
+                            <p class="text-gray-800 leading-relaxed text-sm md:text-base">Proyectos transversales. Que el proyecto de electrónica (ej. un sensor) tenga que resolver un problema ambiental real del colegio (ej. desperdicio de agua) y que su carcasa sea de material reciclado. Integración total de hardware, software y medio ambiente.</p>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Ficha 8 -->
+                <article class="brick-card p-6">
+                    <div class="pixel-img-container">
+                        <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Aula de clase moderna" class="pixel-img">
+                        <div class="absolute top-2 left-2 bg-black text-white px-2 py-1 pixel-font text-[0.6rem]">ID: 008</div>
+                    </div>
+                    <h3 class="text-lg md:text-xl text-[#049CD8] pixel-font mb-4 border-b-4 border-black pb-3">8. Ecoformación</h3>
+                    
+                    <div class="space-y-5">
+                        <div class="bg-gray-50 p-4 border-2 border-dashed border-gray-300 rounded">
+                            <strong class="block pixel-font text-[0.7rem] text-gray-500 mb-2 uppercase tracking-wide">DEFINICIÓN TEXTUAL:</strong>
+                            <p class="italic text-gray-700">El entorno físico ("las cosas") nos forma o deforma tanto como los docentes. Tercera dimensión de la formación tripolar de Rousseau.</p>
+                        </div>
+                        
+                        <div>
+                            <strong class="block pixel-font text-xs text-[#E52521] mb-2"><i class="fa-solid fa-bomb"></i> Crítica (Enfoque Sistémico):</strong>
+                            <p class="text-gray-800 leading-relaxed text-sm md:text-base">El UX/UI (Experiencia de Usuario / Interfaz) del aula importa. Si la interfaz (el aula) es hostil, oscura y rígida, la experiencia de usuario (aprendizaje) será pobre. El entorno físico es la "interfaz gráfica" con la realidad.</p>
+                        </div>
+
+                        <div class="bg-[#effdf5] p-4 border-l-4 border-[#43B047] rounded-r">
+                            <strong class="block pixel-font text-xs text-[#43B047] mb-2"><i class="fa-solid fa-wrench"></i> Aplicación CTP:</strong>
+                            <p class="text-gray-800 leading-relaxed text-sm md:text-base">Analizar la ergonomía y disposición del laboratorio de cómputo. ¿Fomenta la colaboración (mesas en islas) o el aislamiento (filas)? Rediseñar el "layout" físico para optimizar el flujo de información entre estudiantes.</p>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Ficha 9 - IMAGEN ACTUALIZADA -->
+                <article class="brick-card p-6">
+                    <div class="pixel-img-container">
+                        <!-- Nueva imagen: Reflexión interna, introspección -->
+                        <img src="https://images.unsplash.com/photo-1517021897933-0e0319cfbc28?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Dintorno personal reflexión" class="pixel-img">
+                        <div class="absolute top-2 left-2 bg-black text-white px-2 py-1 pixel-font text-[0.6rem]">ID: 009</div>
+                    </div>
+                    <h3 class="text-lg md:text-xl text-[#049CD8] pixel-font mb-4 border-b-4 border-black pb-3">9. Dintorno Personal</h3>
+                    
+                    <div class="space-y-5">
+                        <div class="bg-gray-50 p-4 border-2 border-dashed border-gray-300 rounded">
+                            <strong class="block pixel-font text-[0.7rem] text-gray-500 mb-2 uppercase tracking-wide">DEFINICIÓN TEXTUAL:</strong>
+                            <p class="italic text-gray-700">El entorno interior ("uno mismo"). Espacio del autoconcepto y autoformación, complementario al entorno físico y social.</p>
+                        </div>
+                        
+                        <div>
+                            <strong class="block pixel-font text-xs text-[#E52521] mb-2"><i class="fa-solid fa-bomb"></i> Crítica (Enfoque Sistémico):</strong>
+                            <p class="text-gray-800 leading-relaxed text-sm md:text-base">Es el Kernel del sistema operativo del estudiante. Puedes tener las mejores aplicaciones instaladas (conocimientos técnicos), pero si el Kernel (autoestima, gestión emocional) está corrupto o inestable, el sistema tendrá "kernel panics" (crisis) constantes. Hay que auditar y parchear el núcleo interno.</p>
+                        </div>
+
+                        <div class="bg-[#effdf5] p-4 border-l-4 border-[#43B047] rounded-r">
+                            <strong class="block pixel-font text-xs text-[#43B047] mb-2"><i class="fa-solid fa-wrench"></i> Aplicación CTP:</strong>
+                            <p class="text-gray-800 leading-relaxed text-sm md:text-base">Dedicar tiempo a las "Habilidades Blandas" (que en realidad son Power Skills). En ingeniería, saber comunicar, gestionar la frustración cuando el código falla y trabajar en equipo (gestión del dintorno) es tan vital como saber Java.</p>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Ficha 10 -->
+                <article class="brick-card p-6">
+                    <div class="pixel-img-container">
+                        <img src="https://images.unsplash.com/photo-1533038590840-1cde6e668a91?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Futuro y generaciones" class="pixel-img">
+                        <div class="absolute top-2 left-2 bg-black text-white px-2 py-1 pixel-font text-[0.6rem]">ID: 010</div>
+                    </div>
+                    <h3 class="text-lg md:text-xl text-[#049CD8] pixel-font mb-4 border-b-4 border-black pb-3">10. Principio de la 7ª Generación</h3>
+                    
+                    <div class="space-y-5">
+                        <div class="bg-gray-50 p-4 border-2 border-dashed border-gray-300 rounded">
+                            <strong class="block pixel-font text-[0.7rem] text-gray-500 mb-2 uppercase tracking-wide">DEFINICIÓN TEXTUAL:</strong>
+                            <p class="italic text-gray-700">Pensar el impacto de las decisiones a siete generaciones futuras. Tradición indígena para la sostenibilidad.</p>
+                        </div>
+                        
+                        <div>
+                            <strong class="block pixel-font text-xs text-[#E52521] mb-2"><i class="fa-solid fa-bomb"></i> Crítica (Enfoque Sistémico):</strong>
+                            <p class="text-gray-800 leading-relaxed text-sm md:text-base">Evitar la Deuda Técnica. En desarrollo de software, hacer una solución rápida y sucia hoy ("parche") genera problemas graves en el futuro. Este principio es la gestión definitiva de la deuda técnica planetaria: no programes soluciones hoy que sean bugs catastróficos para los usuarios (humanos) de la versión 7.0 del futuro.</p>
+                        </div>
+
+                        <div class="bg-[#effdf5] p-4 border-l-4 border-[#43B047] rounded-r">
+                            <strong class="block pixel-font text-xs text-[#43B047] mb-2"><i class="fa-solid fa-wrench"></i> Aplicación CTP:</strong>
+                            <p class="text-gray-800 leading-relaxed text-sm md:text-base">Análisis del ciclo de vida del producto. Cuando diseñen algo, preguntar: "¿Dónde terminará este componente electrónico en 50 años? ¿Es reciclable? ¿Es modular?". Diseñar para la obsolescencia o para la persistencia.</p>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Ficha 11 -->
+                <article class="brick-card p-6">
+                    <div class="pixel-img-container">
+                        <img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Minimalismo y código" class="pixel-img">
+                        <div class="absolute top-2 left-2 bg-black text-white px-2 py-1 pixel-font text-[0.6rem]">ID: 011</div>
+                    </div>
+                    <h3 class="text-lg md:text-xl text-[#049CD8] pixel-font mb-4 border-b-4 border-black pb-3">11. Decrecimiento (Optimización)</h3>
+                    
+                    <div class="space-y-5">
+                        <div class="bg-gray-50 p-4 border-2 border-dashed border-gray-300 rounded">
+                            <strong class="block pixel-font text-[0.7rem] text-gray-500 mb-2 uppercase tracking-wide">DEFINICIÓN TEXTUAL:</strong>
+                            <p class="italic text-gray-700">Reducción consciente del consumo y producción. "Menos es más" para la supervivencia.</p>
+                        </div>
+                        
+                        <div>
+                            <strong class="block pixel-font text-xs text-[#E52521] mb-2"><i class="fa-solid fa-bomb"></i> Crítica (Enfoque Sistémico):</strong>
+                            <p class="text-gray-800 leading-relaxed text-sm md:text-base">Es Refactorización y Optimización de Código. El sistema actual es "Bloatware" (software inflado, pesado, ineficiente). El decrecimiento no es pobreza, es eficiencia: hacer más con menos líneas de código, menos consumo de CPU/Recursos. Es limpiar el sistema de procesos inútiles (consumismo).</p>
+                        </div>
+
+                        <div class="bg-[#effdf5] p-4 border-l-4 border-[#43B047] rounded-r">
+                            <strong class="block pixel-font text-xs text-[#43B047] mb-2"><i class="fa-solid fa-wrench"></i> Aplicación CTP:</strong>
+                            <p class="text-gray-800 leading-relaxed text-sm md:text-base">Desafío de "Low-Tech". ¿Pueden resolver este problema usando la tecnología más simple y de menor consumo energético posible? En lugar de un servidor potente, ¿pueden usar un Raspberry Pi con energía solar? Eficiencia energética como criterio de nota.</p>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Ficha 12 -->
+                <article class="brick-card p-6">
+                    <div class="pixel-img-container">
+                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Red compartida y colaboración" class="pixel-img">
+                        <div class="absolute top-2 left-2 bg-black text-white px-2 py-1 pixel-font text-[0.6rem]">ID: 012</div>
+                    </div>
+                    <h3 class="text-lg md:text-xl text-[#049CD8] pixel-font mb-4 border-b-4 border-black pb-3">12. Redistribución (4 Rs)</h3>
+                    
+                    <div class="space-y-5">
+                        <div class="bg-gray-50 p-4 border-2 border-dashed border-gray-300 rounded">
+                            <strong class="block pixel-font text-[0.7rem] text-gray-500 mb-2 uppercase tracking-wide">DEFINICIÓN TEXTUAL:</strong>
+                            <p class="italic text-gray-700">Añadir "Redistribuir" a Reducir, Reutilizar, Reciclar. Justicia social y acceso común a los recursos.</p>
+                        </div>
+                        
+                        <div>
+                            <strong class="block pixel-font text-xs text-[#E52521] mb-2"><i class="fa-solid fa-bomb"></i> Crítica (Enfoque Sistémico):</strong>
+                            <p class="text-gray-800 leading-relaxed text-sm md:text-base">Es la filosofía Open Source (Código Abierto) y P2P (Peer-to-Peer). El conocimiento y los recursos no deben estar centralizados en servidores propietarios (ricos/privilegiados), sino distribuidos en la red para robustecer el sistema global.</p>
+                        </div>
+
+                        <div class="bg-[#effdf5] p-4 border-l-4 border-[#43B047] rounded-r">
+                            <strong class="block pixel-font text-xs text-[#43B047] mb-2"><i class="fa-solid fa-wrench"></i> Aplicación CTP:</strong>
+                            <p class="text-gray-800 leading-relaxed text-sm md:text-base">Fomentar el uso de Software Libre y Hardware Libre (Arduino). Que los estudiantes creen manuales y soluciones que compartan con la comunidad (Creative Commons), entendiendo que redistribuir el conocimiento fortalece a toda la red social.</p>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer estilo Game Over -->
+    <footer class="bg-black text-center py-12 relative z-10 border-t-8 border-[#E52521]">
+        <p class="text-white text-xl pixel-font animate-pulse mb-2">GAME OVER?</p>
+        <p class="text-gray-500 text-sm font-sans">NO, APENAS COMIENZA EL NIVEL 2.</p>
+        <p class="text-gray-600 text-xs mt-4 pixel-font">&copy; 2026 PEDAGOGÍA CRÍTICA SISTÉMICA</p>
+    </footer>
+
+</body>
+</html>
